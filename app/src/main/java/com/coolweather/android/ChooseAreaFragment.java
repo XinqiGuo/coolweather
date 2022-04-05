@@ -3,6 +3,7 @@ package com.coolweather.android;
 import org.litepal.LitePal;
 import org.litepal.crud.LitePalSupport;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -37,16 +38,24 @@ import okhttp3.Response;
 
 public class ChooseAreaFragment extends Fragment {
 
-    private String TAG = "ChooseAreaFragment";
+    private static final String TAG = "ChooseAreaFragment";
 
     public static final int LEVEL_PROVINCE = 0;
+
     public static final int LEVEL_CITY = 1;
+
     public static final int LEVEL_COUNTY = 2;
 
     private ProgressDialog progressDialog;
+
+    private AlertDialog mAlertDialog;
+
     private TextView titleText;
+
     private Button backButton;
+
     private ListView listView;
+
     private ArrayAdapter<String> adapter;
 
     private List<String> dataList = new ArrayList<>();
@@ -94,6 +103,7 @@ public class ChooseAreaFragment extends Fragment {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 if (currentLevel == LEVEL_PROVINCE) {
                     selectedProvince = provinceList.get(position);
+                    Log.i(TAG, "selectedProvince : " + selectedProvince);
                     queryCities();
                 } else if (currentLevel == LEVEL_CITY) {
                     selectedCity = cityList.get(position);
@@ -130,7 +140,6 @@ public class ChooseAreaFragment extends Fragment {
     }
 
     //查询全国所有的省，优先从数据库查询，如果没有查询到再去服务器上查询
-
     private void queryProvinces() {
         titleText.setText("中国");//首先将头布局的标题设置成中国，
         backButton.setVisibility(View.GONE);//将返回按钮隐藏起来，因为省级列表不能再返回了
@@ -229,6 +238,7 @@ public class ChooseAreaFragment extends Fragment {
             @Override
             public void onFailure(Call call, IOException e) {
                 //通过runOnUiThread()方法回到主线程处理逻辑
+                Log.i(TAG, "e : " + e);
                 getActivity().runOnUiThread(new Runnable() {
                     @Override
                     public void run() {

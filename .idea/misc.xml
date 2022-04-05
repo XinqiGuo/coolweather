@@ -4,6 +4,10 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/work/android_studio/MyProject/coolWeather1/coolweather/app/src/main/res/layout/activity_main.xml" value="0.17806484295845998" />
+        <entry key="..\:/work/android_studio/MyProject/coolWeather1/coolweather/app/src/main/res/layout/activity_weather.xml" value="0.23802083333333332" />
+        <entry key="..\:/work/android_studio/MyProject/coolWeather1/coolweather/app/src/main/res/layout/choose_area.xml" value="0.36614583333333334" />
+        <entry key="..\:/work/android_studio/MyProject/coolWeather1/coolweather/app/src/main/res/layout/now.xml" value="0.36614583333333334" />
+        <entry key="..\:/work/android_studio/MyProject/coolWeather1/coolweather/app/src/main/res/layout/title.xml" value="0.36614583333333334" />
       </map>
     </option>
   </component>
